@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="static/style.css"> 
    </head>
   <body>
-    <h1>local shows from ur homies</h1>
-    {% if event_id %}
-        <div>thanks for the submission, homie! Your event ID is {{ event_id }}</div>
+    <h1 id="site_title">local shows from ur homies</h1>
+    {% if ref_event_id %}
+        <div>thanks for the submission, homie! Your event ID is {{ ref_event_id }}</div>
         <div>jot that down in case you need to edit the event later!!</div>
     {% endif %}
-    <a href="/add_event" class="fill-div">Add an Event</a>
+    <a href="/add_event">Add an Event</a>
     <br>
-    <a id=edit_event_link href="/edit_event" class="fill-div"> Edit Event</a>
-    <input type="text" id="edit_event_id" placeholder="enter event id..." />
     <script>
       const input = document.getElementById('edit_event_id');
       const link = document.getElementById('edit_event_link');
@@ -30,20 +28,25 @@
 </script>
     <div class="tonight_area">
       <h2>tonight</h2>
+      <div class="content_zone"> 
       {% if events_today %}
         {{ event_grid.render_event_grid(events_today) }}
       {% endif %}
-    </div>
-    <div class="this_week_area">
-      <h2>this week</h2>
-      <div>
-        [stuff that is this week]
       </div>
+    </div>
+    <div class="coming_up_area">
+      <h2>next couple weeks</h2>
+      <div class="content_zone">
+      {% if events_next_two_weeks %}
+        {{ event_grid.render_event_grid(events_next_two_weeks) }}
+      {% endif %}      </div>
     </div>
     <div class="calendar_area">
       <h2>calendar</h2>
-      <div>
+      <div class="content_zone">
         [calendar will go here]
       </div>
+    </div>
+    feedback? Ask riley
   </body>
 </html>

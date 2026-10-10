@@ -23,6 +23,16 @@ body {
 
 }
 
+h1 {
+  color: #af5e00;
+}
+
+.content_zone {
+  border: 2px solid #c8c8c8;
+  min-height: 300px;
+
+
+}
 .event_grid {
   display: flex;                  /* Forces items into a row structure */
   overflow-x: auto;               /* Enables horizontal scrolling when content overflows */
@@ -30,6 +40,13 @@ body {
   gap: 15px;                      /* Adds clean spacing between your items */
   padding: 10px;
   border: 1px solid #ccc;
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
 }
 
 .event_card {
@@ -41,6 +58,7 @@ body {
   padding: 10px;
   border-radius: 10%;
   background-color: rgb(193, 255, 251);
+  background-size: contain;
   align-items: left;
 
 }

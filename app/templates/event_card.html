@@ -1,8 +1,10 @@
-<div class="event_card">
-    <a href="/event" class="fill-div"></a>
+<div onclick="location.href='/event?event_id={{ event_id }}';" class="event_card" style="background-image: url('static/images/{{ event_id }}.{{ event_data['file_extension'] }}');">
     <h3>{{ event_data['title'] }}</h3>
-
-    <h4>Description</h4>
+    <b>artists: </b> 
+    {% for artist in event_data['artists'] %}
+    <li>{{ artist }}</li>
+    {% endfor %}
+    <b>location: </b><p>{{ event_data['location'] }}</p>
+    <b>description: </b>
     <p>{{ event_data['description'] }}</p>
-
 </div>

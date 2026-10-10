@@ -1,21 +1,28 @@
+import re
+
 from flask_wtf.form import _Auto
-from wtforms import SubmitField, TextAreaField, SelectField, DateField, validators
+from wtforms import SubmitField, TextAreaField, SelectField, DateField, FieldList, FileField, StringField, validators, SelectMultipleField
 from flask_wtf import FlaskForm 
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 import wtforms
 
 class AddEventForm(FlaskForm):
   #name = SelectField('Name', choices=('Eva', 'Zubee'))
-  title = TextAreaField('title', [validators.input_required(), validators.length(max=50)])
+  title = StringField('title', [validators.input_required(), validators.length(max=50)])
+  location = StringField('location', [validators.length(max=50)])
   description = TextAreaField('description', [validators.optional(), validators.length(max=500)])
+  artists = TextAreaField('artists', description='Note: enter Artists as a comma-separated list')
   date = DateField('date', widget=wtforms.widgets.DateInput())
+  flyer = FileField('flyer', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+
   submit = SubmitField('Generate')
 
 class EditEventForm(FlaskForm):
-  def __init__(self, prev_title, formdata=_Auto):
-    super().__init__(formdata)
-    self.prev_title = prev_title
-
-  title = TextAreaField('title', [validators.input_required(), validators.length(max=50)])
+  title = StringField('title', [validators.input_required(), validators.length(max=50)])
+  location = StringField('location', [validators.length(max=50)])
   description = TextAreaField('description', [validators.optional(), validators.length(max=500)])
+  artists = TextAreaField('artists', description='Note: enter Artists as a comma-separated list')
   date = DateField('date', widget=wtforms.widgets.DateInput())
+  flyer = FileField('flyer', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+  
   submit = SubmitField('Generate')
