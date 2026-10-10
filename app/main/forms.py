@@ -1,10 +1,10 @@
-from wtforms import SubmitField, TextAreaField, SelectField
+from wtforms import SubmitField, TextAreaField, SelectField, DateField, validators
 from flask_wtf import FlaskForm 
+import wtforms
 
-
-class ProfileForm(FlaskForm):
-  name = SelectField('Name', choices=('Eva', 'Zubee'))
-  needs = TextAreaField('What I might need')
-  provides = TextAreaField('What I might like to give')
-
+class AddEventForm(FlaskForm):
+  #name = SelectField('Name', choices=('Eva', 'Zubee'))
+  title = TextAreaField('title', [validators.input_required(), validators.length(max=50)])
+  description = TextAreaField('description', [validators.optional(), validators.length(max=500)])
+  date = DateField('date', widget=wtforms.widgets.DateInput())
   submit = SubmitField('Generate')

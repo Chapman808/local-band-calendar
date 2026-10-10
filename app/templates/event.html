@@ -1,0 +1,27 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import 'event_grid.html' as event_grid %}
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="static/style.css"> 
+   </head>
+  <body>
+    <h1>Event View</h1>
+
+    <div class="event_area">
+      {% if not event %}
+        event not found.
+      {% endif %}
+      {% if event %}
+        <h2> {{ event['title'] }}</h2>
+        <h2>description</h2>
+        <p>{{ event['description'] }}</p>
+        <h2>date</h2>
+        <p>{{ event['date']}}</p>
+        <br> 
+        <p>event_id: {{ event ['event_id'] }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

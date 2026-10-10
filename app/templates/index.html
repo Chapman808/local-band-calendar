@@ -1,17 +1,33 @@
 {% import "bootstrap/wtf.html" as wtf %}
-{% import 'profile_grid.html' as profile_grid %}
+{% import 'event_grid.html' as event_grid %}
+
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <link rel="stylesheet" href="static/style.css"> 
-
    </head>
   <body>
-    <h1>Micro-Mutual Aid Dashboard!</h1>
-    <div class="content_area">
-      {% if cards %}
-        {{ profile_grid.render_profile_grid(cards) }}
+    <h1>local shows from ur homies</h1>
+    {% if event_id %}
+        <div>thanks for the submission, homie! Your event ID is {{ event_id }}</div>
+        <div>jot that down in case you need to edit the event later!!</div>
+    {% endif %}
+    <div class="tonight_area">
+      <h2>tonight</h2>
+      {% if events_today %}
+        {{ event_grid.render_event_grid(events_today) }}
       {% endif %}
     </div>
+    <div class="this_week_area">
+      <h2>this week</h2>
+      <div>
+        [stuff that is this week]
+      </div>
+    </div>
+    <div class="calendar_area">
+      <h2>calendar</h2>
+      <div>
+        [calendar will go here]
+      </div>
   </body>
 </html>

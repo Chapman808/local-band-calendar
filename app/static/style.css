@@ -17,33 +17,29 @@
 }
 
 body {
-  grid-template-columns: 1fr 4fr 1fr;
+  display: block;
+  padding: 10px;
+  margin: 30px;
+
 }
 
-li {
-  display: inline-block;
-  vertical-align: top;
+.event_grid {
+  display: flex;                  /* Forces items into a row structure */
+  overflow-x: auto;               /* Enables horizontal scrolling when content overflows */
+  overflow-y: hidden;             /* Prevents vertical scrolling */
+  gap: 15px;                      /* Adds clean spacing between your items */
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
-.content_area {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-}
-
-.profile_grid {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 0;
-}
-
-.profile_card {
-  min-height: 120px;
-  max-height: auto;
-  width: 95%;
+.event_card {
+  min-width: 500px;
+  min-height: 500px;
   float: left;
-  margin: 3px;
-  padding: 3px;
+  margin: 10px;
+  padding: 10px;
   border-radius: 10%;
   background-color: rgb(193, 255, 251);
+  align-items: left;
+
 }
