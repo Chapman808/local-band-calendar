@@ -1,0 +1,18 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="static/style.css"> 
+
+   </head>
+  <body>
+    <h1>local show from ur homies</h1>
+    <h2>editing event:  {{ event_id }} </h2>
+    <div>
+      {{ wtf.quick_form(form) }}
+    </div>
+    <div>
+      {{message}}
+    </div>
+  </body>
+</html>

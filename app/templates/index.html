@@ -12,6 +12,22 @@
         <div>thanks for the submission, homie! Your event ID is {{ event_id }}</div>
         <div>jot that down in case you need to edit the event later!!</div>
     {% endif %}
+    <a href="/add_event" class="fill-div">Add an Event</a>
+    <br>
+    <a id=edit_event_link href="/edit_event" class="fill-div"> Edit Event</a>
+    <input type="text" id="edit_event_id" placeholder="enter event id..." />
+    <script>
+      const input = document.getElementById('edit_event_id');
+      const link = document.getElementById('edit_event_link');
+      
+      // Base URL for the link
+      const baseUrl = '/edit_event';
+
+      input.addEventListener('input', () => {
+        const event_id = encodeURIComponent(input.value);
+        link.href = `${baseUrl}?event_id=${event_id}`;
+      });
+</script>
     <div class="tonight_area">
       <h2>tonight</h2>
       {% if events_today %}
