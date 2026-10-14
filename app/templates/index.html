@@ -26,14 +26,14 @@
         link.href = `${baseUrl}?event_id=${event_id}`;
       });
 </script>
+    {% if events_today %}
     <div class="tonight_area">
       <h2>tonight</h2>
       <div class="content_zone"> 
-      {% if events_today %}
         {{ event_grid.render_event_grid(events_today) }}
-      {% endif %}
       </div>
     </div>
+    {% endif %}
     <div class="coming_up_area">
       <h2>next couple weeks</h2>
       <div class="content_zone">

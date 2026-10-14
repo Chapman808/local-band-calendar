@@ -1,8 +1,22 @@
 import pickle
 from datetime import date, timedelta
-import uuid
-import time 
 import pandas as pd
+from objects.event import Event
+
+def add_event(event : Event) -> None:
+  events = get_events()
+  date = event.date
+  if date not in events: events[date] = {}
+  events[date][event.event_id] = event
+  with open ('data/events.pkl', 'wb') as events_file:
+    pickle.dump(events, events_file)
+
+def edit_event(event : Event) -> None:
+  events = get_events()
+  date = event.date
+  events[date][event.event_id] = event
+  with open ('data/events.pkl', 'wb') as events_file:
+    pickle.dump(events, events_file) 
 
 def get_events():
   try:
@@ -25,9 +39,8 @@ def get_event_by_id(event_id : str):
 
 def get_events_today():
   events = get_events()
-  print(events)
   if date.today() in events:
-    print("found events today!")
+    #print("found events today!")
     events_today = events[date.today()]
     #print(events_today.values())
     return events_today
@@ -47,15 +60,4 @@ def store_flyer_image(image_file, event_id):
   file_extension = image_file.filename.split('.')[-1]
   with open(f'app/static/images/{event_id}.{file_extension}', 'wb') as f:
     f.write(image_file.read())
-
-def add_event(data) -> None:
-  event_id = str(uuid.uuid4())
-  events = get_events()
-  date = data['date']
-  if date not in events: events[date] = {}
-  events[date][event_id] = data
-  with open ('data/events.pkl', 'wb') as events_file:
-    pickle.dump(events, events_file)
-  return event_id
-
-
+  return f'{event_id}.{file_extension}'

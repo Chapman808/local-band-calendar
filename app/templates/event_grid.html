@@ -1,6 +1,6 @@
 {% macro render_event_grid(events) %}
 <div class="event_grid">
-  {% for event_id, event_data in events.items() %}
+  {% for event_id, event in events.items() %}
     {% include 'event_card.html' %}
   {% endfor %}
 </div>

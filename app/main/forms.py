@@ -11,7 +11,7 @@ class AddEventForm(FlaskForm):
   title = StringField('title', [validators.input_required(), validators.length(max=50)])
   location = StringField('location', [validators.length(max=50)])
   description = TextAreaField('description', [validators.optional(), validators.length(max=500)])
-  artists = TextAreaField('artists', description='Note: enter Artists as a comma-separated list')
+  artists = StringField('artists', description='Note: enter Artists as a comma-separated list')
   date = DateField('date', widget=wtforms.widgets.DateInput())
   flyer = FileField('flyer', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
 

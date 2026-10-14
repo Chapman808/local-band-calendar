@@ -14,10 +14,10 @@
         event not found.
       {% endif %}
       {% if event %}
-        <p><b>title: </b> {{ event['title'] }}</p>
-        <p><b>description: </b> {{ event['description'] }}</p>
-        <p><b>date: </b>{{ event['date']}}</p>
-        <img src="static/images/{{ event_id }}.{{ event['file_extension'] }}" alt="Description of the image" width="300" height="200">
+        <p><b>title: </b> {{ event.title }}</p>
+        <p><b>description: </b> {{ event.description }}</p>
+        <p><b>date: </b>{{ event.date }}</p>
+        <img src="static/images/{{ event.flyer_filename }}" alt="Description of the image" width="300" height="200">
         <br> 
         <p>event_id: {{ event_id }}</p>
         <a id=edit_event_link href="/edit_event?event_id={{ event_id }}"> Edit Event</a>

@@ -1,10 +1,10 @@
-<div onclick="location.href='/event?event_id={{ event_id }}';" class="event_card" style="background-image: url('static/images/{{ event_id }}.{{ event_data['file_extension'] }}');">
-    <h3>{{ event_data['title'] }}</h3>
+<div onclick="location.href='/event?event_id={{ event_id }}';" class="event_card" style="background-image: url('static/images/{{ event.flyer_filename }}');">
+    <h3>{{ event.title }}</h3>
     <b>artists: </b> 
-    {% for artist in event_data['artists'] %}
+    {% for artist in event.artists %}
     <li>{{ artist }}</li>
     {% endfor %}
-    <b>location: </b><p>{{ event_data['location'] }}</p>
+    <b>location: </b><p>{{ event.location }}</p>
     <b>description: </b>
-    <p>{{ event_data['description'] }}</p>
+    <p>{{ event.description }}</p>
 </div>
