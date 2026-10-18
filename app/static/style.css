@@ -2,7 +2,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: light;
-    --bg: #fff;
+    --bg: #ffead2;
     --accent-bg: #f5f7ff;
     --text: #212121;
     --text-light: #585858;
@@ -19,27 +19,34 @@
 body {
   display: block;
   padding: 10px;
-  margin: 30px;
+  margin: 20px;
 
 }
 
 h1 {
   color: #af5e00;
+  margin: 0
+}
+
+h2 {
+  margin: 10px;
+  margin-top: 30px;
 }
 
 .content_zone {
-  border: 2px solid #c8c8c8;
+  /*border: 2px solid #c8c8c8;*/
   min-height: 300px;
 
 
 }
 .event_grid {
+  background-color:  rgb(184 184 184 / 26%);
   display: flex;                  /* Forces items into a row structure */
   overflow-x: auto;               /* Enables horizontal scrolling when content overflows */
   overflow-y: hidden;             /* Prevents vertical scrolling */
   gap: 15px;                      /* Adds clean spacing between your items */
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
 }
 
 a.fill-div {
@@ -50,15 +57,41 @@ a.fill-div {
 }
 
 .event_card {
-  min-width: 500px;
-  max-width: 500px;
-  min-height: 500px;
+  position: relative;
+  /*min-width: 500px;*/
+  min-width: 350px;
+  /max-width: 100vw;
+  max-width: 400px;
+  /*min-height: 700px;*/
   float: left;
   margin: 10px;
-  padding: 10px;
-  border-radius: 10%;
-  background-color: rgb(193, 255, 251);
+  border-radius: 10px;
+  background-color: rgb(166 166 166 / 37%);
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   align-items: left;
+  overflow: hidden; /* Clips anything extending past the border line */
+}
 
+.card_image {
+  display: block;      /* Changes image from inline to block */
+  margin-left: auto;   /* Splits left and right spacing evenly */
+  margin-right: auto;
+  overflow: hidden;
+  height: 80%;
+  /*border-top-left-radius: 50px;*/
+  /*border-top-right-radius: 50px;*/
+}
+
+.card_info {
+  display: flex;
+  align-items: center;         /* Vertically centers the text */
+  justify-content: center;     /* Horizontally centers the text (Optional) */
+  vert: center;
+  position: absolute;
+  bottom: 0;
+  height: 20%;
+  width: 100%;
+  background-color:  #ffaa80b0;
 }
