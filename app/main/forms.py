@@ -8,12 +8,12 @@ import wtforms
 
 class AddEventForm(FlaskForm):
   #name = SelectField('Name', choices=('Eva', 'Zubee'))
-  title = StringField('title', [validators.input_required(), validators.length(max=50)])
+  title = StringField('title', [validators.length(max=50)])
   location = StringField('location', [validators.length(max=50)])
-  description = TextAreaField('description', [validators.optional(), validators.length(max=500)])
+  description = TextAreaField('description', [validators.optional(), validators.length(max=2000)])
   artists = StringField('artists', description='Note: enter Artists as a comma-separated list')
   date = DateField('date', widget=wtforms.widgets.DateInput())
-  flyer = FileField('flyer', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+  flyer = FileField('flyer', validators=[validators.input_required(), FileAllowed(['jpg', 'png', 'jpeg'])])
 
   submit = SubmitField('Generate')
 
@@ -23,6 +23,6 @@ class EditEventForm(FlaskForm):
   description = TextAreaField('description', [validators.optional(), validators.length(max=2000)])
   artists = TextAreaField('artists', description='Note: enter Artists as a comma-separated list')
   date = DateField('date', widget=wtforms.widgets.DateInput())
-  flyer = FileField('flyer', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+  flyer = FileField('flyer', validators=[validators.input_required(), FileAllowed(['jpg', 'png', 'jpeg'])])
   
   submit = SubmitField('Generate')
