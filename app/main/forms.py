@@ -12,7 +12,7 @@ class AddEventForm(FlaskForm):
   location = StringField('location', [validators.length(max=50)])
   description = TextAreaField('description', [validators.optional(), validators.length(max=2000)])
   artists = StringField('artists', description='Note: enter Artists as a comma-separated list')
-  date = DateField('date', widget=wtforms.widgets.DateInput())
+  date = DateField('date', widget=wtforms.widgets.DateInput(), validators=[validators.input_required()])
   flyer = FileField('flyer', validators=[validators.input_required(), FileAllowed(['jpg', 'png', 'jpeg'])])
 
   submit = SubmitField('Generate')
@@ -22,7 +22,7 @@ class EditEventForm(FlaskForm):
   location = StringField('location', [validators.length(max=50)])
   description = TextAreaField('description', [validators.optional(), validators.length(max=2000)])
   artists = TextAreaField('artists', description='Note: enter Artists as a comma-separated list')
-  date = DateField('date', widget=wtforms.widgets.DateInput())
+  date = DateField('date', widget=wtforms.widgets.DateInput(), validators=[validators.input_required()])
   flyer = FileField('flyer', validators=[validators.input_required(), FileAllowed(['jpg', 'png', 'jpeg'])])
   
   submit = SubmitField('Generate')
