@@ -59,8 +59,8 @@ a.fill-div {
 .event_card {
   position: relative;
   /*min-width: 500px;*/
-  min-width: 350px;
-  /max-width: 100vw;
+  min-width: 600px;
+  max-width: 100vw;
   max-width: 400px;
   /*min-height: 700px;*/
   float: left;
