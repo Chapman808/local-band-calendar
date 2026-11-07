@@ -58,7 +58,7 @@ def get_events_next_two_weeks():
 
 def get_events_next_three_months():
   events = get_events()
-  dates = pd.date_range(date.today() + timedelta(weeks=2), date.today() + timedelta(months=3) ).tolist()
+  dates = pd.date_range(date.today() + timedelta(weeks=2), date.today() + timedelta(weeks=12)).tolist()
   output = {}
   for d in dates:
     d = d.to_pydatetime().date()
