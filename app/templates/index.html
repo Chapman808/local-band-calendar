@@ -39,13 +39,16 @@
       <div class="content_zone">
       {% if events_next_two_weeks %}
         {{ event_grid.render_event_grid(events_next_two_weeks) }}
-      {% endif %}      </div>
+      {% endif %}     
+     </div>
     </div>
-    <div class="calendar_area">
-      <h2>calendar</h2>
+        <div class="later_on_area">
+      <h2>shows later on</h2>
       <div class="content_zone">
-        [calendar will go here]
-      </div>
+      {% if events_after_that %}
+        {{ event_grid.render_event_grid(events_after_that) }}
+      {% endif %}     
+     </div>
     </div>
     feedback? Ask riley
   </body>

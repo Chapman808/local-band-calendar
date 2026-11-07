@@ -11,7 +11,8 @@ def index(requireActions : bool = None):
   ref_event_id = request.args.get('event_id')
   events_today = dao.get_events_today()
   events_next_two_weeks = dao.get_events_next_two_weeks()
-  return render_template('index.html', events_today=events_today, events_next_two_weeks=events_next_two_weeks, ref_event_id=ref_event_id)
+  events_after_that = dao.get_events_next_three_months()
+  return render_template('index.html', events_today=events_today, events_next_two_weeks=events_next_two_weeks, events_after_that=events_after_that, ref_event_id=ref_event_id)
 
 @main.route('/event', methods=['GET'])
 def get_event(requireActions : bool = None):

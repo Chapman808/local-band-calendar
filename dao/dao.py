@@ -56,6 +56,16 @@ def get_events_next_two_weeks():
     output.update(events[d])
   return output
 
+def get_events_next_three_months():
+  events = get_events()
+  dates = pd.date_range(date.today() + timedelta(weeks=2), date.today() + timedelta(months=3) ).tolist()
+  output = {}
+  for d in dates:
+    d = d.to_pydatetime().date()
+    if d not in events: continue
+    output.update(events[d])
+  return output
+
 def store_flyer_image(image_file, event_id):
   file_extension = image_file.filename.split('.')[-1]
   with open(f'app/static/images/{event_id}.{file_extension}', 'wb') as f:
